@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>2026 福建高考志愿填报系统 v3.0</title>
+<link rel="stylesheet" href="./assets/style.css"/>
+</head>
+<body>
+<header class="hero">
+<div><h1>🎓 高考志愿填报系统</h1><p>福建 2026 | 位次驱动 | 5层阈值 | 院校分层 | 张雪峰视角</p></div>
+<div class="badge">v3.0</div>
+</header>
+<div id="overviewStats" class="overview-bar"></div>
+<div id="countdown" style="background:#fff5f5;text-align:center;padding:8px;font-size:13px;color:#c00;border-bottom:1px solid #fcc;"></div>
+<div class="tab-bar">
+<button class="tab-btn active" data-tab="tabAdvise">📝 志愿推荐</button>
+<button class="tab-btn" data-tab="tabPlan">📋 招生计划</button>
+<button class="tab-btn" data-tab="tabReport">📄 报告</button>
+<button class="tab-btn" data-tab="tabAbout">ℹ️ 关于</button>
+</div>
+
+<div id="tabAdvise" class="tab-panel active">
+<div class="layout">
+<section class="card form-card">
+<h2>1️⃣ 输入信息</h2>
+<div class="grid two">
+<label>分数<input id="score" type="number" placeholder="如 580"/><small id="rankHint" class="hint"></small></label>
+<label>科目组<select id="subject"><option>物理科目组</option><option>历史科目组</option></select></label>
+<label>首选科目<select id="firstSubject"><option value="">不限</option><option>物理</option><option>历史</option></select></label>
+<label>再选科目<select id="secondSubject"><option value="">不限</option><option>化学</option><option>生物</option><option>化学+生物</option><option>地理</option><option>政治</option></select></label>
+<label>家庭年收入(万)<input id="income" type="number" placeholder="选填 10/30/80"/></label>
+<label>每层推荐数<select id="perLayer"><option>5</option><option selected>8</option><option>10</option><option>15</option></select></label>
+<label>目标专业<input id="majorFilter" type="text" placeholder="选填，如 计算机/临床医学"/></label>
+</div>
+<h3>筛选</h3>
+<div class="grid two">
+<label>院校层次<select id="tierFilter"><option value="all">全部</option><option>985</option><option>211</option><option>双一流</option><option>省属重点</option><option>普通本科</option></select></label>
+<label>办学性质<select id="ownershipFilter"><option value="all">全部</option><option>公办</option><option>民办</option><option>中外合作办学</option></select></label>
+<label>院校地域<select id="provinceFilter"><option value="all">全部</option><option value="fujian">仅省内</option><option value="outside">仅省外</option></select></label>
+<label></label>
+</div>
+<h3>排序策略</h3>
+<div class="grid two">
+<label>优先策略<select id="priority"><option value="school">🏫 学校优先</option><option value="major">📚 专业优先</option></select></label>
+<label></label>
+</div>
+<button id="generateBtn">获取推荐</button>
+<div id="warnLine" style="margin-top:8px;font-size:13px;color:#c62828;"></div>
+</section>
+
+<section class="card result-card">
+<h2>2️⃣ 推荐结果</h2>
+<div id="status" class="status">⏳ 数据加载中…</div>
+<div id="officialBox" class="official-box"></div>
+<div id="summaryCards"></div>
+<div id="zhangAnalysis"></div>
+<div id="recommendations"></div>
+<button id="reportBtn" style="margin-top:16px;display:none;background:linear-gradient(135deg,#1a237e,#283593)">📄 一键生成报告</button>
+</section>
+</div>
+</div>
+
+<div id="tabPlan" class="tab-panel">
+<section class="card wide">
+<h2>📋 2026 年福建招生计划</h2>
+<div class="plan-filters">
+<select id="planFilterTrack"><option value="all">全部科类</option><option>物理科目组</option><option>历史科目组</option></select>
+<input id="planFilterCollege" placeholder="院校名称"/>
+<input id="planFilterMajor" placeholder="专业名称"/>
+<select id="planFilterSubject"><option value="all">选科要求</option><option>不限选考科目</option><option>选考化学</option><option>选考思想政治</option><option>选考地理</option><option>选考生物</option></select>
+<select id="planFilterTier"><option value="all">院校层次</option><option>985</option><option>211</option><option>双一流</option><option>省属重点</option><option>普通本科</option></select>
+<select id="planFilterOwn"><option value="all">办学性质</option><option>公办</option><option>民办</option><option>中外合作办学</option></select>
+<span id="planCount" class="plan-count"></span>
+</div>
+<div class="table-wrap plan-table"><table><thead><tr><th>层次</th><th>代码</th><th>院校</th><th>专业组</th><th>专业数</th><th>选科</th><th>计划</th><th>学费</th><th>办学</th><th>备注</th></tr></thead>
+<tbody id="planTbody"><tr><td colspan="10">加载中…</td></tr></tbody></table></div>
+</section>
+</div>
+
+<div id="tabReport" class="tab-panel">
+<section class="card wide">
+<h2>📄 志愿填报报告</h2>
+<div id="reportContent">
+<p class="muted">请先在"志愿推荐"页生成推荐结果,然后点击"一键生成报告"按钮。</p>
+</div>
+</section>
+</div>
+
+<div id="tabAbout" class="tab-panel">
+<section class="card wide">
+<h2>ℹ️ 关于本系统</h2>
+<h3>数据源</h3>
+<ul>
+<li>📊 2025 福建投档线（物理组/历史组含位次）</li>
+<li>📋 2026 福建招生计划（本科批+专科批）</li>
+<li>📈 2026 一分一段表（物理组/历史组）</li>
+<li>📐 2026 省控线</li>
+<li>🏫 院校分层（985/211/双一流/省属重点/普通本科）</li>
+</ul>
+<h3>算法</h3>
+<ul>
+<li>5 层位次阈值：按位次分段（≤3万 / >3万 / >10万）动态调整冲稳保阈值</li>
+<li>位次差≥5000→保高概率，2000~5000→保较高，±2000→稳中等，-2000~-5000→冲较低，<-5000→冲低概率</li>
+<li>专科兜底：稳+保＜5 条或位次＞10万自动追加专科批</li>
+<li>张雪峰视角：家庭年收入+学校梯队分层分析</li>
+</ul>
+<h3>风险提示</h3>
+<ul>
+<li>⚠️ 本系统辅助决策，不替代官方志愿系统</li>
+<li>⚠️ 投档线参考 2025 年数据，2026 实际录取可能有偏差</li>
+<li>⚠️ 所有推荐需二次核查招生章程</li>
+</ul>
+</section>
+</div>
+<script src="./assistant.v2.js"></script>
+<!-- Visitor Counter -->
+<div id="visitorCounter" style="text-align:center;padding:8px;font-size:12px;color:#999;border-top:1px solid #eee;margin-top:16px;"></div>
+<script>
+(function(){
+  var KEY='gaokao2026_visitor';
+  var STAT_KEY='gaokao2026_stats';
+  var vid=localStorage.getItem(KEY);
+  if(!vid){vid='v'+Date.now()+'_'+Math.random().toString(36).substr(2,6);localStorage.setItem(KEY,vid);}
+  var stats=JSON.parse(localStorage.getItem(STAT_KEY)||'{"total":0,"visitors":[]}');
+  if(stats.visitors.indexOf(vid)===-1){stats.visitors.push(vid);stats.total=stats.visitors.length;localStorage.setItem(STAT_KEY,JSON.stringify(stats));}
+  var el=document.getElementById('visitorCounter');
+  if(el){el.innerHTML='📊 你是第 <b>'+stats.total+'</b> 位访客';}
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+:root{--bg:#f5f7fb;--card:#fff;--text:#172033;--muted:#68748a;--line:#dde4ef;--blue:#2563eb;--red:#dc2626;--green:#16a34a;--amber:#d97706;--purple:#7c3aed}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+.hero{display:flex;justify-content:space-between;align-items:center;padding:24px 36px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.hero h1{margin:0 0 6px;font-size:26px}.hero p{margin:0;opacity:.85;font-size:13px}.badge{background:rgba(255,255,255,.15);padding:8px 14px;border-radius:999px;font-size:13px}
+.overview-bar{background:#eef4ff;border-bottom:1px solid var(--line);padding:8px 36px;font-size:13px;color:var(--muted)}
+.tab-bar{display:flex;gap:0;background:var(--card);border-bottom:1px solid var(--line);padding:0 18px;position:sticky;top:0;z-index:10}
+.tab-btn{padding:12px 20px;border:0;background:none;cursor:pointer;font-size:14px;color:var(--muted);border-bottom:2px solid transparent;font-weight:600}
+.tab-btn:hover{color:var(--text);background:#f8fafc}.tab-btn.active{color:var(--blue);border-bottom-color:var(--blue)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.layout{display:grid;grid-template-columns:400px 1fr;gap:18px;padding:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(26,39,68,.06)}
+.wide{margin:0 18px 24px}.card h2{margin:0 0 14px;font-size:17px}.card h3{margin:18px 0 10px;font-size:15px}
+.grid.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+input,select,textarea{border:1px solid var(--line);border-radius:10px;padding:10px;font-size:14px;background:#fff;color:var(--text)}
+button{width:100%;border:0;border-radius:12px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-weight:700;padding:13px 16px;font-size:16px;cursor:pointer}
+button:hover{filter:brightness(.95)}
+.hint,.muted{color:var(--muted);font-size:13px;line-height:1.6}
+.status{padding:12px;border-radius:12px;background:#eef4ff;color:#1e40af;margin-bottom:14px;font-size:14px}
+.table-wrap{overflow:auto;max-height:620px;border:1px solid var(--line);border-radius:12px}.plan-table{max-height:70vh}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{position:sticky;top:0;background:#f8fafc;z-index:1;white-space:nowrap}
+tr.sub-row td{background:#fafbfc;padding:4px 10px 10px}
+.summary-grid{display:grid;gap:10px;margin-bottom:14px}
+.metric{padding:12px;border:1px solid var(--line);border-radius:12px;font-size:13px;color:var(--muted)}
+.metric b{display:block;font-size:20px;margin-top:4px;color:var(--text)}
+/* Badges */
+.tb{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.t-985{background:#fff3e0;color:#e65100}.t-211{background:#e3f2fd;color:#1565c0}
+.t-syl{background:#f3e5f5;color:#7b1fa2}.t-zd{background:#e8f5e9;color:#2e7d32}
+.t-pt{background:#f5f5f5;color:#666}.t-zk{background:#ffebee;color:#b71c1c}
+.ob{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px}
+.ob-gb{background:#e3f2fd;color:#1565c0}.ob-mb{background:#fff3e0;color:#e65100}.ob-zw{background:#f3e5f5;color:#7b1fa2}
+.pb{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.pb-h{background:#e8f5e9;color:#2e7d32}.pb-gj{background:#e3f2fd;color:#1565c0}
+.pb-zd{background:#fff3e0;color:#e65100}.pb-dj{background:#fce4ec;color:#c62828}
+.pb-d{background:#ffebee;color:#b71c1c}.pb-ck{background:#f5f5f5;color:#666}.pb-wz{background:#eee;color:#999}
+.sb{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600}
+.sb-冲{background:#ffebee;color:#c62828}.sb-稳{background:#e3f2fd;color:#1565c0}.sb-保{background:#e8f5e9;color:#2e7d32}
+.gc-pos{color:#2e7d32;font-weight:600}.gc-neg{color:#c62828;font-weight:600}
+/* Control lines */
+.control-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:10px}
+.track-group{border:1px solid var(--line);border-radius:12px;padding:12px}
+.track-label{font-weight:700;font-size:14px;margin-bottom:8px;color:var(--blue)}
+.track-lines{display:flex;flex-wrap:wrap;gap:8px}
+.control-item{background:#f0f4ff;padding:6px 10px;border-radius:8px;font-size:13px;white-space:nowrap}
+.control-item b{margin-right:4px}
+/* Zhang */
+.zx-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.zx-card{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fafbff}
+.zx-card.full{grid-column:1/-1}.zx-label{font-size:12px;color:var(--muted);margin-bottom:4px}.zx-value{font-size:14px;font-weight:600}
+.zx-suggestions{padding-left:0;list-style:none}
+.zx-suggestions li{padding:6px 0;border-bottom:1px solid var(--line);font-size:14px}
+/* Plan */
+.plan-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.plan-filters input,.plan-filters select{flex:1;min-width:100px}
+.plan-count{font-size:13px;color:var(--muted);white-space:nowrap}
+.major-list{display:flex;flex-wrap:wrap;gap:6px}
+.major-chip{background:#f0f4ff;border:1px solid #e0e7ff;border-radius:8px;padding:4px 10px;font-size:12px}
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}.hero{padding:20px;display:block}
+  .summary-grid{grid-template-columns:1fr 1fr}.control-grid,.zx-grid{grid-template-columns:1fr}
+  .plan-filters{flex-direction:column}
+}
+
+/* ======== 报告标签页 ======== */
+.report-preview { padding: 4px 0; }
+.report-actions { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+.report-actions button { width: auto; padding: 10px 20px; display: inline-flex; align-items: center; gap: 6px; }
+.report-summary { margin-bottom: 14px; }
+.report-preview h3 { margin: 16px 0 8px; font-size: 15px; }
+.report-preview .table-wrap { max-height: 400px; }
+.report-preview .metric { padding: 12px; border: 1px solid var(--line); border-radius: 12px; font-size: 13px; color: var(--muted); background: var(--card); }
+.report-preview .metric b { display: block; font-size: 20px; margin-top: 4px; color: var(--text); }
+.report-preview .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 14px 0; }
+@media(max-width: 700px) {
+  .report-preview .info-grid { grid-template-columns: repeat(2, 1fr); }
+  .report-actions { flex-direction: column; }
+  .report-actions button { width: 100%; }
+}

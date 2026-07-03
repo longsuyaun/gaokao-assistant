@@ -1,0 +1,98 @@
+{
+  "version": "mvp-20260624-v2",
+  "defaultProvince": "福建",
+  "defaultTrack": "物理组",
+  "canonical_source": {
+    "physics": "official/eeafj/2026招生计划公布/物理科目组/（官方电子版PDF，2026-06-24 起为主数据源）",
+    "history": "official/eeafj/2026招生计划公布/历史科目组/（官方电子版PDF，2026-06-24 起为主数据源）",
+    "old_scan_backup": "raw/26物理完整版.pdf 已备份，不再作为主源"
+  },
+  "supported": [
+    {
+      "province": "福建",
+      "track": "物理组",
+      "years": [
+        2025,
+        2026
+      ],
+      "status": "MVP；2026 成绩分布/控制线待官网发布；官方电子版招生计划已到位（物理组本科批 549 页）"
+    },
+    {
+      "province": "福建",
+      "track": "历史组",
+      "years": [
+        2025,
+        2026
+      ],
+      "status": "入口已加入，控制线已显示；候选库/投档线待官方数据补齐；官方电子版招生计划已到位（历史组本科批 194 页）"
+    }
+  ],
+  "strategyBands": {
+    "rush": {
+      "label": "冲",
+      "minRatio": 0.8,
+      "maxRatio": 0.95,
+      "description": "候选组历史位次优于考生位次，属于冲刺"
+    },
+    "stable": {
+      "label": "稳",
+      "minRatio": 0.95,
+      "maxRatio": 1.08,
+      "description": "候选组历史位次与考生位次接近"
+    },
+    "safe": {
+      "label": "保",
+      "minRatio": 1.08,
+      "maxRatio": 1.6,
+      "description": "候选组历史位次弱于考生位次，安全垫更大"
+    }
+  },
+  "riskRules": [
+    {
+      "tag": "中外/高收费",
+      "warning": "核查学费、培养地点、是否可接受高收费"
+    },
+    {
+      "tag": "民办/独立学院",
+      "warning": "核查办学性质、学费和就业认可度"
+    },
+    {
+      "tag": "定向",
+      "warning": "核查定向地区、服务期和违约责任"
+    },
+    {
+      "tag": "医学相关",
+      "warning": "核查色盲色弱限制、学制、规培路径"
+    },
+    {
+      "tag": "警校/政审体测",
+      "warning": "核查政审、面试、体检、体测要求"
+    },
+    {
+      "tag": "面向地区",
+      "warning": "核查是否符合面向地区报考条件"
+    }
+  ],
+  "official_2026_plan_extraction": {
+    "updated_at": "2026-06-25 07:05",
+    "bachelor_batch": {
+      "physics": {
+        "firstpass": 14663,
+        "auto_clean": 13622,
+        "repair_queue": 1041,
+        "missing_ownership": 319,
+        "missing_city": 0,
+        "pages": 549
+      },
+      "history": {
+        "firstpass": 4601,
+        "auto_clean": 4228,
+        "repair_queue": 373,
+        "missing_ownership": 85,
+        "missing_city": 0,
+        "pages": 194
+      },
+      "note": "auto_clean 已经修复水印粘连导致的专业名/计划数/学费误读；关键字段齐全，已回填部分 ownership。city 抽取依赖 PDF 原始文本位置，部分院校无 city 文本行，待后续规则补。repair_queue 主要是缺专业名记录。auto_clean 仍需抽样核验后才能接入正式推荐库。"
+    }
+  }
+}

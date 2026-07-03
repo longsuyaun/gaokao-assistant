@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "province": "福建",
+    "year": 2026,
+    "source": "福建省教育考试院",
+    "source_url": "https://www.eeafj.cn/gkptgkgsgg/20260624/14697.html",
+    "published_at": "2026-06-24 16:32",
+    "status": "official_image_manual_transcription",
+    "note": "来源为福建省教育考试院官方控制分数线图片，已人工转写；后续可二次核验。"
+  },
+  "records": [
+    {"category":"普通类本科批","track":"物理科目组","control_line":446},
+    {"category":"普通类高职（专科）批","track":"物理科目组","control_line":235},
+    {"category":"普通类特殊类型招生","track":"物理科目组","control_line":528},
+    {"category":"普通类本科批","track":"历史科目组","control_line":458},
+    {"category":"普通类高职（专科）批","track":"历史科目组","control_line":235},
+    {"category":"普通类特殊类型招生","track":"历史科目组","control_line":533},
+    {"category":"艺术类文考本科线（音乐教育/导演/播音/美术/书法）","track":"物理科目组","control_line":335},
+    {"category":"艺术类文考专科线（音乐教育/导演/播音/美术/书法）","track":"物理科目组","control_line":165},
+    {"category":"艺术类文考本科线（音乐表演/表演/服装/舞蹈/戏曲）","track":"物理科目组","control_line":312},
+    {"category":"艺术类文考专科线（音乐表演/表演/服装/舞蹈/戏曲）","track":"物理科目组","control_line":165},
+    {"category":"艺术类省统考专业本科合格线（不含戏曲省际联考）","track":"物理/历史科目组","control_line":195},
+    {"category":"艺术类省统考专业专科合格线（不含戏曲省际联考）","track":"物理/历史科目组","control_line":180},
+    {"category":"戏曲类省际联考本专科专业合格线","track":"物理/历史科目组","control_line":180},
+    {"category":"艺术类文考本科线（音乐教育/导演/播音/美术/书法）","track":"历史科目组","control_line":344},
+    {"category":"艺术类文考专科线（音乐教育/导演/播音/美术/书法）","track":"历史科目组","control_line":165},
+    {"category":"艺术类文考本科线（音乐表演/表演/服装/舞蹈/戏曲）","track":"历史科目组","control_line":321},
+    {"category":"艺术类文考专科线（音乐表演/表演/服装/舞蹈/戏曲）","track":"历史科目组","control_line":165},
+    {"category":"体育类文考本科线","track":"物理科目组","control_line":290},
+    {"category":"体育类文考专科线","track":"物理科目组","control_line":165},
+    {"category":"体育类省统考本专科专业合格线","track":"物理/历史科目组","control_line":60},
+    {"category":"体育类文考本科线","track":"历史科目组","control_line":298},
+    {"category":"体育类文考专科线","track":"历史科目组","control_line":165}
+  ]
+}
